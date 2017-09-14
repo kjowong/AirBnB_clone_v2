@@ -15,7 +15,7 @@ class Amenity(BaseModel, Base):
     if storage_type == "db":
         __tablename__ = 'amenities'
         name = Column(String(128), nullable=False)
-        place_amenities = relationship('place_amenity', backref='amenities',
+        place_amenities = relationship('Place', backref='amenities',
                                        cascade='delete')
     else:
         name = ''

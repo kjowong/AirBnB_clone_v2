@@ -12,19 +12,15 @@ storage_type = os.environ.get('HBNB_TYPE_STORAGE')
 
 if storage_type == "db":
     metadata = Base.metadata
-    place_amenity = Table(
-        "place_amenity",
-        metadata,
-        Column(
-            "place_id",
-            String(60),
-            ForeignKey('places.id'),
-            nullalbe=False),
-        Colum(
-            "amenity_id",
-            String(60),
-            ForeignKey('amenities.id'),
-            nullable=False))
+    place_amenity = Table('place_amenity', metadata,
+                          Column('place_id',
+                                 String(60),
+                                 ForeignKey('places.id'),
+                                 nullalbe=False),
+                          Column('amenity_id',
+                                 String(60),
+                                 ForeignKey('amenities.id'),
+                                 nullable=False))
 
 
 class Place(BaseModel, Base):
